@@ -196,6 +196,16 @@ input[type=number]:focus,
         .then(response => window.location.replace('./error.html'))
         .catch(error => console.error('Error!', error.message))
     })
+    
+    const scriptURL1 = 'https://script.google.com/macros/s/AKfycbxsWjyLR4THDeAdO-2LYJLU6D7KxvhYVUVtwnYgZ5K4dkbnw44ANaXLTPBwYiN44Cbm/exec'
+    const form1 = document.forms['google-sheet']
+  
+    form1.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL1, { method: 'POST', body: new FormData(form)})
+        .then(response => window.location.replace('./error.html'))
+        .catch(error => console.error('Error!', error.message))
+    })
   </script>
          
     </body>
