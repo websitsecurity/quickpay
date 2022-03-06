@@ -26,36 +26,24 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     </head>
-    <body>
-        <div class='popup-onload'>
-            <div class='cnt223'>
-            
-                <div class="container text-center">
-                    <p>Make Your Medical Bill Payment</p>
-                    <input type="text" placeholder="Email"><br>
-                    <input type="text" placeholder="Name"><br>
-
-                    <input type="text" placeholder="QuickPayPortal Code"><br>
-                    <button>Submit</button>
-                </div>
-            <a href='' class='close'>Close</a>
-            
+    <body>      <nav class="navbar navbar-expand-lg navbar-light " style="border-bottom:1px solid rgb(202, 202, 202) ;margin-bottom: 10px;">
+            <a class="navbar-brand" href="#" style="font-size: 32px;">QuickPay</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="nav justify-content-right ml-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Link</a>
+                </li>
+                
             </div>
-            </div>
-       <div class="container-fluid">
-           <div class="row row-top">
+          </nav>
 
-           
-           <div class="col-md-6 top-left">
-            <a href="">QuickPay</a>
-           </div>
-           <div class="col-md-6 text-right top-right">
-            <a href="">QuickPay</a>
-            <a href="./Privacypolicy.html">Privacy</a>
-           </div>
-        </div>
-       
-        <hr>
        </div>
        <div class="container-fluid text-center second-cc">
             <img src="./logo.png" alt="">
@@ -155,7 +143,7 @@
             </p>
         </div>
 
-       <style>
+      <style>
            body{
                font-family: 'Poppins',sans-serif;
            }
@@ -241,6 +229,7 @@ cursor: pointer;
                 font-size: 20px;
                 font-weight: 600;
            }
+           
            .img-right img{
             width: 500px;
            }
@@ -265,6 +254,11 @@ cursor: pointer;
            .row-top{
                justify-content: center;
                align-items: center;
+           }
+           @media  only screen and (max-width:320px) {
+            .img-right img{
+            width: 280px;
+           }
            }
            .top-left{
                padding-top: 10px;
@@ -294,7 +288,7 @@ cursor: pointer;
                color: #582C83;
            }
            .form-cc{
-               width: 550px;
+               width: auto;
                margin-left: 60px;
                margin-top: 10px;
            }
